@@ -1,0 +1,48 @@
+code link :https://leetcode.com/problems/find-all-duplicates-in-an-array/
+platform : linkdin
+topic:array
+Initial Array:
+
+makefile
+
+nums = {4, 3, 2, 7, 8, 2, 3, 1}
+Sorting the Array:
+After sorting, the array becomes:
+
+makefile
+
+nums = {1, 2, 2, 3, 3, 4, 7, 8}
+Finding Duplicates:
+We iterate through the sorted array to find duplicates:
+
+Compare nums[1] (2) with nums[0] (1): Not a duplicate.
+Compare nums[2] (2) with nums[1] (2): Duplicate found, add 2 to duplicates.
+Compare nums[3] (3) with nums[2] (2): Not a duplicate.
+Compare nums[4] (3) with nums[3] (3): Duplicate found, add 3 to duplicates.
+Compare nums[5] (4) with nums[4] (3): Not a duplicate.
+Compare nums[6] (7) with nums[5] (4): Not a duplicate.
+Compare nums[7] (8) with nums[6] (7): Not a duplicate.
+Result:
+The duplicates vector now contains:
+
+makefile
+
+duplicates = {2, 3}
+
+code : 
+
+class Solution {
+public:
+    vector<int> findDuplicates(std::vector<int>& nums) {
+        vector<int> duplicates;
+        sort(nums.begin(), nums.end()); // sort the array fom left to right
+        
+        for (int i = 1; i < nums.size(); ++i) { // after sorting 
+            if (nums[i] == nums[i - 1]) {
+                duplicates.push_back(nums[i]);
+            }
+        }
+        
+        return duplicates;
+    }
+};
