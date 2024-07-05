@@ -33,7 +33,7 @@ code :
 
 class Solution {
 public:
-    vector<int> findDuplicates(std::vector<int>& nums) {
+    vector<int> findDuplicates(vector<int>& nums) {
         vector<int> duplicates;
         sort(nums.begin(), nums.end()); // sort the array fom left to right
         
